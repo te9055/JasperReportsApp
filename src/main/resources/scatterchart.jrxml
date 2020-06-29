@@ -20,40 +20,36 @@
 		<![CDATA[]]>
 	</queryString>
 	<background>
-		<band height="802" splitType="Stretch">
-			<pie3DChart>
-				<chart isShowLegend="false" evaluationTime="Report">
-					<reportElement x="10" y="0" width="534" height="303" uuid="3338069c-f360-4f9e-b658-16e8b1fbd392"/>
+		<band height="429" splitType="Stretch">
+			<scatterChart>
+				<chart evaluationTime="Report">
+					<reportElement x="140" y="120" width="390" height="289" uuid="96c202f8-14fa-424e-ae68-ec98ecc0e623"/>
 					<chartTitle/>
 					<chartSubtitle/>
 					<chartLegend/>
 				</chart>
-				<pieDataset>
-					<dataset resetType="Report">
-						<datasetRun subDataset="PieChartDataset" uuid="c5763ec2-7670-40c6-8a51-30d763262ec5">
-							<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.JREmptyDataSource(5)]]></dataSourceExpression>
-						</datasetRun>
-					</dataset>
-					<keyExpression><![CDATA[/* Replace with your key expression here */
-$V{REPORT_COUNT}]]></keyExpression>
-					<valueExpression><![CDATA[new Double(200*Math.random()*5)]]></valueExpression>
-				</pieDataset>
-				<pie3DPlot>
-					<plot backgroundAlpha="0.5" foregroundAlpha="0.8">
-						<seriesColor seriesOrder="0" color="#3399FF"/>
-						<seriesColor seriesOrder="1" color="#00CCFF"/>
-						<seriesColor seriesOrder="2" color="#0066CC"/>
-						<seriesColor seriesOrder="3" color="#6699FF"/>
-						<seriesColor seriesOrder="4" color="#004A94"/>
-						<seriesColor seriesOrder="5" color="#00356A"/>
-					</plot>
-					<itemLabel color="#000000" backgroundColor="#FFFFFF"/>
-				</pie3DPlot>
-			</pie3DChart>
+				<xyDataset>
+					<dataset resetType="Report"/>
+					<xySeries>
+						<seriesExpression><![CDATA["SERIES 1"]]></seriesExpression>
+						<xValueExpression><![CDATA[0]]></xValueExpression>
+						<yValueExpression><![CDATA[0]]></yValueExpression>
+					</xySeries>
+				</xyDataset>
+				<scatterPlot>
+					<plot/>
+					<xAxisFormat>
+						<axisFormat labelColor="#000000" tickLabelColor="#000000" axisLineColor="#000000"/>
+					</xAxisFormat>
+					<yAxisFormat>
+						<axisFormat labelColor="#000000" tickLabelColor="#000000" axisLineColor="#000000"/>
+					</yAxisFormat>
+				</scatterPlot>
+			</scatterChart>
 		</band>
 	</background>
 	<title>
-		<band height="94" splitType="Stretch"/>
+		<band height="246" splitType="Stretch"/>
 	</title>
 	<pageHeader>
 		<band splitType="Stretch"/>
@@ -65,7 +61,7 @@ $V{REPORT_COUNT}]]></keyExpression>
 		<band height="23" splitType="Stretch"/>
 	</detail>
 	<columnFooter>
-		<band height="7" splitType="Stretch"/>
+		<band height="205" splitType="Stretch"/>
 	</columnFooter>
 	<pageFooter>
 		<band height="13" splitType="Stretch"/>
