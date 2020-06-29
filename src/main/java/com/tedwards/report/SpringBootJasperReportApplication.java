@@ -9,7 +9,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.io.FileNotFoundException;
 import java.util.List;
@@ -23,6 +25,10 @@ public class SpringBootJasperReportApplication {
     @Autowired
     private ReportService service;
 
+    @RequestMapping(value = "/")
+    public String index() {
+        return "index";
+    }
     @GetMapping("/getEmployees")
     public List<Employee> getEmployees() {
 
@@ -33,6 +39,11 @@ public class SpringBootJasperReportApplication {
     @GetMapping("/report/{format}")
     public String generateReport(@PathVariable String format) throws FileNotFoundException, JRException {
         return service.exportReport(format);
+    }
+
+    @GetMapping("/piechart/{format}")
+    public String generatePie(@PathVariable String format) throws FileNotFoundException, JRException {
+        return service.exportPieChart(format);
     }
 
     public static void main(String[] args) {
