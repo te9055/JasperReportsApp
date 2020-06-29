@@ -383,4 +383,24 @@ public class ReportService {
         return "report generated in path : " + path;
     }
 
-}
+    public String generateNewreport(String reportType) throws FileNotFoundException, JRException {
+        String path = "C:\\Users\\Thomas\\Desktop\\Report";
+
+        File file = ResourceUtils.getFile("classpath:"+reportType+".jrxml");
+
+        List<Employee> employees = repository.findAll();
+        JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
+        JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(employees);
+        Map<String, Object> parameters = new HashMap<>();
+        parameters.put("createdBy", "Thomas Edwards");
+        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, dataSource);
+
+
+
+
+        JasperExportManager.exportReportToPdfFile(jasperPrint, path + "\\generatedreport.pdf");
+
+        return "report generated in path : " + path;
+    }
+
+    }

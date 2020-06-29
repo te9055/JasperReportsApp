@@ -136,6 +136,11 @@ public class SpringBootJasperReportApplication {
         return service.exporxyLineChart(format);
     }
 
+    @GetMapping("/generatenewreport/{type}")
+    public String generateNewwReport(@PathVariable String type) throws FileNotFoundException, JRException {
+        return service.generateNewreport(type);
+    }
+
     public static void main(String[] args) {
         SpringApplication.run(SpringBootJasperReportApplication.class, args);
     }
