@@ -40,15 +40,149 @@ public class ReportService {
         return "report generated in path : " + path;
     }
 
-    public String exportPieChart(String reportFormat) throws FileNotFoundException, JRException {
+    public String exportAreaChart(String reportFormat) throws FileNotFoundException, JRException {
         String path = "C:\\Users\\Thomas\\Desktop\\Report";
-        List<Employee> employees = repository.findAll();
-        File file = ResourceUtils.getFile("classpath:employees.jrxml");
+        File file = ResourceUtils.getFile("classpath:areachart.jrxml");
         JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
-        JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(employees);
         Map<String, Object> parameters = new HashMap<>();
         parameters.put("createdBy", "Thomas Edwards");
-        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, dataSource);
+        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters);
+        if (reportFormat.equalsIgnoreCase("html")) {
+            JasperExportManager.exportReportToHtmlFile(jasperPrint, path + "\\areachart.html");
+        }
+        if (reportFormat.equalsIgnoreCase("pdf")) {
+            JasperExportManager.exportReportToPdfFile(jasperPrint, path + "\\areachart.pdf");
+        }
+
+        return "report generated in path : " + path;
+    }
+
+    public String exportBarChart(String reportFormat) throws FileNotFoundException, JRException {
+        String path = "C:\\Users\\Thomas\\Desktop\\Report";
+        File file = ResourceUtils.getFile("classpath:barchart.jrxml");
+        JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
+        Map<String, Object> parameters = new HashMap<>();
+        parameters.put("createdBy", "Thomas Edwards");
+        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters);
+        if (reportFormat.equalsIgnoreCase("html")) {
+            JasperExportManager.exportReportToHtmlFile(jasperPrint, path + "\\barchart.html");
+        }
+        if (reportFormat.equalsIgnoreCase("pdf")) {
+            JasperExportManager.exportReportToPdfFile(jasperPrint, path + "\\barchart.pdf");
+        }
+
+        return "report generated in path : " + path;
+    }
+
+    public String exportThreeDBarChart(String reportFormat) throws FileNotFoundException, JRException {
+        String path = "C:\\Users\\Thomas\\Desktop\\Report";
+        File file = ResourceUtils.getFile("classpath:3dbarchart.jrxml");
+        JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
+        Map<String, Object> parameters = new HashMap<>();
+        parameters.put("createdBy", "Thomas Edwards");
+        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters);
+        if (reportFormat.equalsIgnoreCase("html")) {
+            JasperExportManager.exportReportToHtmlFile(jasperPrint, path + "\\3dbarchart.html");
+        }
+        if (reportFormat.equalsIgnoreCase("pdf")) {
+            JasperExportManager.exportReportToPdfFile(jasperPrint, path + "\\3dbarchart.pdf");
+        }
+
+        return "report generated in path : " + path;
+    }
+
+    public String exportBubbleChart(String reportFormat) throws FileNotFoundException, JRException {
+        String path = "C:\\Users\\Thomas\\Desktop\\Report";
+        File file = ResourceUtils.getFile("classpath:bubblechart.jrxml");
+        JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
+        Map<String, Object> parameters = new HashMap<>();
+        parameters.put("createdBy", "Thomas Edwards");
+        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters);
+        if (reportFormat.equalsIgnoreCase("html")) {
+            JasperExportManager.exportReportToHtmlFile(jasperPrint, path + "\\bubblechart.html");
+        }
+        if (reportFormat.equalsIgnoreCase("pdf")) {
+            JasperExportManager.exportReportToPdfFile(jasperPrint, path + "\\bubblechart.pdf");
+        }
+
+        return "report generated in path : " + path;
+    }
+
+    public String exportCandleChart(String reportFormat) throws FileNotFoundException, JRException {
+        String path = "C:\\Users\\Thomas\\Desktop\\Report";
+        File file = ResourceUtils.getFile("classpath:candlechart.jrxml");
+        JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
+        Map<String, Object> parameters = new HashMap<>();
+        parameters.put("createdBy", "Thomas Edwards");
+        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters);
+        if (reportFormat.equalsIgnoreCase("html")) {
+            JasperExportManager.exportReportToHtmlFile(jasperPrint, path + "\\candlechart.html");
+        }
+        if (reportFormat.equalsIgnoreCase("pdf")) {
+            JasperExportManager.exportReportToPdfFile(jasperPrint, path + "\\candlechart.pdf");
+        }
+
+        return "report generated in path : " + path;
+    }
+
+    public String exportHiLowChart(String reportFormat) throws FileNotFoundException, JRException {
+        String path = "C:\\Users\\Thomas\\Desktop\\Report";
+        File file = ResourceUtils.getFile("classpath:hilowchart.jrxml");
+        JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
+        Map<String, Object> parameters = new HashMap<>();
+        parameters.put("createdBy", "Thomas Edwards");
+        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters);
+        if (reportFormat.equalsIgnoreCase("html")) {
+            JasperExportManager.exportReportToHtmlFile(jasperPrint, path + "\\hilowchart.html");
+        }
+        if (reportFormat.equalsIgnoreCase("pdf")) {
+            JasperExportManager.exportReportToPdfFile(jasperPrint, path + "\\hilowchart.pdf");
+        }
+
+        return "report generated in path : " + path;
+    }
+
+    public String exportLineChart(String reportFormat) throws FileNotFoundException, JRException {
+        String path = "C:\\Users\\Thomas\\Desktop\\Report";
+        File file = ResourceUtils.getFile("classpath:linechart.jrxml");
+        JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
+        Map<String, Object> parameters = new HashMap<>();
+        parameters.put("createdBy", "Thomas Edwards");
+        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters);
+        if (reportFormat.equalsIgnoreCase("html")) {
+            JasperExportManager.exportReportToHtmlFile(jasperPrint, path + "\\linechart.html");
+        }
+        if (reportFormat.equalsIgnoreCase("pdf")) {
+            JasperExportManager.exportReportToPdfFile(jasperPrint, path + "\\linechart.pdf");
+        }
+
+        return "report generated in path : " + path;
+    }
+
+    public String exportmeterChart(String reportFormat) throws FileNotFoundException, JRException {
+        String path = "C:\\Users\\Thomas\\Desktop\\Report";
+        File file = ResourceUtils.getFile("classpath:meterchart.jrxml");
+        JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
+        Map<String, Object> parameters = new HashMap<>();
+        parameters.put("createdBy", "Thomas Edwards");
+        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters);
+        if (reportFormat.equalsIgnoreCase("html")) {
+            JasperExportManager.exportReportToHtmlFile(jasperPrint, path + "\\meterchart.html");
+        }
+        if (reportFormat.equalsIgnoreCase("pdf")) {
+            JasperExportManager.exportReportToPdfFile(jasperPrint, path + "\\meterchart.pdf");
+        }
+
+        return "report generated in path : " + path;
+    }
+
+    public String exportPieChart(String reportFormat) throws FileNotFoundException, JRException {
+        String path = "C:\\Users\\Thomas\\Desktop\\Report";
+        File file = ResourceUtils.getFile("classpath:piechart.jrxml");
+        JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
+        Map<String, Object> parameters = new HashMap<>();
+        parameters.put("createdBy", "Thomas Edwards");
+        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters);
         if (reportFormat.equalsIgnoreCase("html")) {
             JasperExportManager.exportReportToHtmlFile(jasperPrint, path + "\\piechart.html");
         }
@@ -58,4 +192,159 @@ public class ReportService {
 
         return "report generated in path : " + path;
     }
+
+
+    public String exportThreeDPieChart(String reportFormat) throws FileNotFoundException, JRException {
+        String path = "C:\\Users\\Thomas\\Desktop\\Report";
+        File file = ResourceUtils.getFile("classpath:3dpiechart.jrxml");
+        JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
+        Map<String, Object> parameters = new HashMap<>();
+        parameters.put("createdBy", "Thomas Edwards");
+        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters);
+        if (reportFormat.equalsIgnoreCase("html")) {
+            JasperExportManager.exportReportToHtmlFile(jasperPrint, path + "\\3dpiechart.html");
+        }
+        if (reportFormat.equalsIgnoreCase("pdf")) {
+            JasperExportManager.exportReportToPdfFile(jasperPrint, path + "\\3dpiechart.pdf");
+        }
+
+        return "report generated in path : " + path;
+    }
+
+    public String exportScatterChart(String reportFormat) throws FileNotFoundException, JRException {
+        String path = "C:\\Users\\Thomas\\Desktop\\Report";
+        File file = ResourceUtils.getFile("classpath:scatterchart.jrxml");
+        JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
+        Map<String, Object> parameters = new HashMap<>();
+        parameters.put("createdBy", "Thomas Edwards");
+        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters);
+        if (reportFormat.equalsIgnoreCase("html")) {
+            JasperExportManager.exportReportToHtmlFile(jasperPrint, path + "\\scatterchart.html");
+        }
+        if (reportFormat.equalsIgnoreCase("pdf")) {
+            JasperExportManager.exportReportToPdfFile(jasperPrint, path + "\\scatterchart.pdf");
+        }
+
+        return "report generated in path : " + path;
+    }
+
+    public String exportStackedAreaChart(String reportFormat) throws FileNotFoundException, JRException {
+        String path = "C:\\Users\\Thomas\\Desktop\\Report";
+        File file = ResourceUtils.getFile("classpath:stackedareachart.jrxml");
+        JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
+        Map<String, Object> parameters = new HashMap<>();
+        parameters.put("createdBy", "Thomas Edwards");
+        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters);
+        if (reportFormat.equalsIgnoreCase("html")) {
+            JasperExportManager.exportReportToHtmlFile(jasperPrint, path + "\\stackedareachart.html");
+        }
+        if (reportFormat.equalsIgnoreCase("pdf")) {
+            JasperExportManager.exportReportToPdfFile(jasperPrint, path + "\\stackedareachart.pdf");
+        }
+
+        return "report generated in path : " + path;
+    }
+
+    public String exportStackedBarChart(String reportFormat) throws FileNotFoundException, JRException {
+        String path = "C:\\Users\\Thomas\\Desktop\\Report";
+        File file = ResourceUtils.getFile("classpath:stackedbarchart.jrxml");
+        JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
+        Map<String, Object> parameters = new HashMap<>();
+        parameters.put("createdBy", "Thomas Edwards");
+        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters);
+        if (reportFormat.equalsIgnoreCase("html")) {
+            JasperExportManager.exportReportToHtmlFile(jasperPrint, path + "\\stackedbarchart.html");
+        }
+        if (reportFormat.equalsIgnoreCase("pdf")) {
+            JasperExportManager.exportReportToPdfFile(jasperPrint, path + "\\stackedbarchart.pdf");
+        }
+
+        return "report generated in path : " + path;
+    }
+
+    public String exportThermometerChart(String reportFormat) throws FileNotFoundException, JRException {
+        String path = "C:\\Users\\Thomas\\Desktop\\Report";
+        File file = ResourceUtils.getFile("classpath:thermometerchart.jrxml");
+        JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
+        Map<String, Object> parameters = new HashMap<>();
+        parameters.put("createdBy", "Thomas Edwards");
+        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters);
+        if (reportFormat.equalsIgnoreCase("html")) {
+            JasperExportManager.exportReportToHtmlFile(jasperPrint, path + "\\thermometerchart.html");
+        }
+        if (reportFormat.equalsIgnoreCase("pdf")) {
+            JasperExportManager.exportReportToPdfFile(jasperPrint, path + "\\thermometerchart.pdf");
+        }
+
+        return "report generated in path : " + path;
+    }
+
+    public String exportTimeSeriesChart(String reportFormat) throws FileNotFoundException, JRException {
+        String path = "C:\\Users\\Thomas\\Desktop\\Report";
+        File file = ResourceUtils.getFile("classpath:timeserieschart.jrxml");
+        JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
+        Map<String, Object> parameters = new HashMap<>();
+        parameters.put("createdBy", "Thomas Edwards");
+        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters);
+        if (reportFormat.equalsIgnoreCase("html")) {
+            JasperExportManager.exportReportToHtmlFile(jasperPrint, path + "\\timeserieschart.html");
+        }
+        if (reportFormat.equalsIgnoreCase("pdf")) {
+            JasperExportManager.exportReportToPdfFile(jasperPrint, path + "\\timeserieschart.pdf");
+        }
+
+        return "report generated in path : " + path;
+    }
+
+    public String exporxyAxisChart(String reportFormat) throws FileNotFoundException, JRException {
+        String path = "C:\\Users\\Thomas\\Desktop\\Report";
+        File file = ResourceUtils.getFile("classpath:xyaxischart.jrxml");
+        JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
+        Map<String, Object> parameters = new HashMap<>();
+        parameters.put("createdBy", "Thomas Edwards");
+        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters);
+        if (reportFormat.equalsIgnoreCase("html")) {
+            JasperExportManager.exportReportToHtmlFile(jasperPrint, path + "\\xyaxischart.html");
+        }
+        if (reportFormat.equalsIgnoreCase("pdf")) {
+            JasperExportManager.exportReportToPdfFile(jasperPrint, path + "\\xyaxischart.pdf");
+        }
+
+        return "report generated in path : " + path;
+    }
+
+    public String exporxybarChart(String reportFormat) throws FileNotFoundException, JRException {
+        String path = "C:\\Users\\Thomas\\Desktop\\Report";
+        File file = ResourceUtils.getFile("classpath:xybarchart.jrxml");
+        JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
+        Map<String, Object> parameters = new HashMap<>();
+        parameters.put("createdBy", "Thomas Edwards");
+        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters);
+        if (reportFormat.equalsIgnoreCase("html")) {
+            JasperExportManager.exportReportToHtmlFile(jasperPrint, path + "\\xybarchart.html");
+        }
+        if (reportFormat.equalsIgnoreCase("pdf")) {
+            JasperExportManager.exportReportToPdfFile(jasperPrint, path + "\\xybarchart.pdf");
+        }
+
+        return "report generated in path : " + path;
+    }
+
+    public String exporxyLineChart(String reportFormat) throws FileNotFoundException, JRException {
+        String path = "C:\\Users\\Thomas\\Desktop\\Report";
+        File file = ResourceUtils.getFile("classpath:xylinechart.jrxml");
+        JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
+        Map<String, Object> parameters = new HashMap<>();
+        parameters.put("createdBy", "Thomas Edwards");
+        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters);
+        if (reportFormat.equalsIgnoreCase("html")) {
+            JasperExportManager.exportReportToHtmlFile(jasperPrint, path + "\\xylinechart.html");
+        }
+        if (reportFormat.equalsIgnoreCase("pdf")) {
+            JasperExportManager.exportReportToPdfFile(jasperPrint, path + "\\xylinechart.pdf");
+        }
+
+        return "report generated in path : " + path;
+    }
+
 }
