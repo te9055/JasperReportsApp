@@ -23,8 +23,8 @@ public class ReportService {
 
     public String exportReport(String reportFormat) throws FileNotFoundException, JRException {
         String path = "C:\\Users\\Thomas\\Desktop\\Report";
-        List<Employee> employees = repository.findAll();
         File file = ResourceUtils.getFile("classpath:employees.jrxml");
+        List<Employee> employees = repository.findAll();
         JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
         JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(employees);
         Map<String, Object> parameters = new HashMap<>();
@@ -42,11 +42,13 @@ public class ReportService {
 
     public String exportAreaChart(String reportFormat) throws FileNotFoundException, JRException {
         String path = "C:\\Users\\Thomas\\Desktop\\Report";
+        List<Employee> employees = repository.findAll();
         File file = ResourceUtils.getFile("classpath:areachart.jrxml");
+        JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(employees);
         JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
         Map<String, Object> parameters = new HashMap<>();
         parameters.put("createdBy", "Thomas Edwards");
-        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters);
+        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, dataSource);
         if (reportFormat.equalsIgnoreCase("html")) {
             JasperExportManager.exportReportToHtmlFile(jasperPrint, path + "\\areachart.html");
         }
@@ -60,10 +62,12 @@ public class ReportService {
     public String exportBarChart(String reportFormat) throws FileNotFoundException, JRException {
         String path = "C:\\Users\\Thomas\\Desktop\\Report";
         File file = ResourceUtils.getFile("classpath:barchart.jrxml");
+        List<Employee> employees = repository.findAll();
         JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
+        JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(employees);
         Map<String, Object> parameters = new HashMap<>();
         parameters.put("createdBy", "Thomas Edwards");
-        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters);
+        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, dataSource);
         if (reportFormat.equalsIgnoreCase("html")) {
             JasperExportManager.exportReportToHtmlFile(jasperPrint, path + "\\barchart.html");
         }
@@ -77,10 +81,12 @@ public class ReportService {
     public String exportThreeDBarChart(String reportFormat) throws FileNotFoundException, JRException {
         String path = "C:\\Users\\Thomas\\Desktop\\Report";
         File file = ResourceUtils.getFile("classpath:3dbarchart.jrxml");
+        List<Employee> employees = repository.findAll();
         JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
+        JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(employees);
         Map<String, Object> parameters = new HashMap<>();
         parameters.put("createdBy", "Thomas Edwards");
-        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters);
+        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, dataSource);
         if (reportFormat.equalsIgnoreCase("html")) {
             JasperExportManager.exportReportToHtmlFile(jasperPrint, path + "\\3dbarchart.html");
         }
@@ -94,10 +100,12 @@ public class ReportService {
     public String exportBubbleChart(String reportFormat) throws FileNotFoundException, JRException {
         String path = "C:\\Users\\Thomas\\Desktop\\Report";
         File file = ResourceUtils.getFile("classpath:bubblechart.jrxml");
+        List<Employee> employees = repository.findAll();
         JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
+        JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(employees);
         Map<String, Object> parameters = new HashMap<>();
         parameters.put("createdBy", "Thomas Edwards");
-        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters);
+        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, dataSource);
         if (reportFormat.equalsIgnoreCase("html")) {
             JasperExportManager.exportReportToHtmlFile(jasperPrint, path + "\\bubblechart.html");
         }
@@ -111,10 +119,12 @@ public class ReportService {
     public String exportCandleChart(String reportFormat) throws FileNotFoundException, JRException {
         String path = "C:\\Users\\Thomas\\Desktop\\Report";
         File file = ResourceUtils.getFile("classpath:candlechart.jrxml");
+        List<Employee> employees = repository.findAll();
         JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
+        JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(employees);
         Map<String, Object> parameters = new HashMap<>();
         parameters.put("createdBy", "Thomas Edwards");
-        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters);
+        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, dataSource);
         if (reportFormat.equalsIgnoreCase("html")) {
             JasperExportManager.exportReportToHtmlFile(jasperPrint, path + "\\candlechart.html");
         }
@@ -128,10 +138,12 @@ public class ReportService {
     public String exportHiLowChart(String reportFormat) throws FileNotFoundException, JRException {
         String path = "C:\\Users\\Thomas\\Desktop\\Report";
         File file = ResourceUtils.getFile("classpath:hilowchart.jrxml");
+        List<Employee> employees = repository.findAll();
         JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
+        JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(employees);
         Map<String, Object> parameters = new HashMap<>();
         parameters.put("createdBy", "Thomas Edwards");
-        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters);
+        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, dataSource);
         if (reportFormat.equalsIgnoreCase("html")) {
             JasperExportManager.exportReportToHtmlFile(jasperPrint, path + "\\hilowchart.html");
         }
@@ -145,10 +157,12 @@ public class ReportService {
     public String exportLineChart(String reportFormat) throws FileNotFoundException, JRException {
         String path = "C:\\Users\\Thomas\\Desktop\\Report";
         File file = ResourceUtils.getFile("classpath:linechart.jrxml");
+        List<Employee> employees = repository.findAll();
         JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
+        JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(employees);
         Map<String, Object> parameters = new HashMap<>();
         parameters.put("createdBy", "Thomas Edwards");
-        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters);
+        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, dataSource);
         if (reportFormat.equalsIgnoreCase("html")) {
             JasperExportManager.exportReportToHtmlFile(jasperPrint, path + "\\linechart.html");
         }
@@ -162,10 +176,12 @@ public class ReportService {
     public String exportmeterChart(String reportFormat) throws FileNotFoundException, JRException {
         String path = "C:\\Users\\Thomas\\Desktop\\Report";
         File file = ResourceUtils.getFile("classpath:meterchart.jrxml");
+        List<Employee> employees = repository.findAll();
         JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
+        JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(employees);
         Map<String, Object> parameters = new HashMap<>();
         parameters.put("createdBy", "Thomas Edwards");
-        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters);
+        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, dataSource);
         if (reportFormat.equalsIgnoreCase("html")) {
             JasperExportManager.exportReportToHtmlFile(jasperPrint, path + "\\meterchart.html");
         }
@@ -179,10 +195,12 @@ public class ReportService {
     public String exportPieChart(String reportFormat) throws FileNotFoundException, JRException {
         String path = "C:\\Users\\Thomas\\Desktop\\Report";
         File file = ResourceUtils.getFile("classpath:piechart.jrxml");
+        List<Employee> employees = repository.findAll();
         JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
+        JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(employees);
         Map<String, Object> parameters = new HashMap<>();
         parameters.put("createdBy", "Thomas Edwards");
-        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters);
+        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, dataSource);
         if (reportFormat.equalsIgnoreCase("html")) {
             JasperExportManager.exportReportToHtmlFile(jasperPrint, path + "\\piechart.html");
         }
@@ -197,10 +215,12 @@ public class ReportService {
     public String exportThreeDPieChart(String reportFormat) throws FileNotFoundException, JRException {
         String path = "C:\\Users\\Thomas\\Desktop\\Report";
         File file = ResourceUtils.getFile("classpath:3dpiechart.jrxml");
+        List<Employee> employees = repository.findAll();
         JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
+        JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(employees);
         Map<String, Object> parameters = new HashMap<>();
         parameters.put("createdBy", "Thomas Edwards");
-        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters);
+        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, dataSource);
         if (reportFormat.equalsIgnoreCase("html")) {
             JasperExportManager.exportReportToHtmlFile(jasperPrint, path + "\\3dpiechart.html");
         }
@@ -214,10 +234,12 @@ public class ReportService {
     public String exportScatterChart(String reportFormat) throws FileNotFoundException, JRException {
         String path = "C:\\Users\\Thomas\\Desktop\\Report";
         File file = ResourceUtils.getFile("classpath:scatterchart.jrxml");
+        List<Employee> employees = repository.findAll();
         JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
+        JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(employees);
         Map<String, Object> parameters = new HashMap<>();
         parameters.put("createdBy", "Thomas Edwards");
-        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters);
+        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, dataSource);
         if (reportFormat.equalsIgnoreCase("html")) {
             JasperExportManager.exportReportToHtmlFile(jasperPrint, path + "\\scatterchart.html");
         }
@@ -231,10 +253,12 @@ public class ReportService {
     public String exportStackedAreaChart(String reportFormat) throws FileNotFoundException, JRException {
         String path = "C:\\Users\\Thomas\\Desktop\\Report";
         File file = ResourceUtils.getFile("classpath:stackedareachart.jrxml");
+        List<Employee> employees = repository.findAll();
         JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
+        JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(employees);
         Map<String, Object> parameters = new HashMap<>();
         parameters.put("createdBy", "Thomas Edwards");
-        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters);
+        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, dataSource);
         if (reportFormat.equalsIgnoreCase("html")) {
             JasperExportManager.exportReportToHtmlFile(jasperPrint, path + "\\stackedareachart.html");
         }
@@ -248,10 +272,12 @@ public class ReportService {
     public String exportStackedBarChart(String reportFormat) throws FileNotFoundException, JRException {
         String path = "C:\\Users\\Thomas\\Desktop\\Report";
         File file = ResourceUtils.getFile("classpath:stackedbarchart.jrxml");
+        List<Employee> employees = repository.findAll();
         JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
+        JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(employees);
         Map<String, Object> parameters = new HashMap<>();
         parameters.put("createdBy", "Thomas Edwards");
-        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters);
+        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, dataSource);
         if (reportFormat.equalsIgnoreCase("html")) {
             JasperExportManager.exportReportToHtmlFile(jasperPrint, path + "\\stackedbarchart.html");
         }
@@ -265,10 +291,12 @@ public class ReportService {
     public String exportThermometerChart(String reportFormat) throws FileNotFoundException, JRException {
         String path = "C:\\Users\\Thomas\\Desktop\\Report";
         File file = ResourceUtils.getFile("classpath:thermometerchart.jrxml");
+        List<Employee> employees = repository.findAll();
         JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
+        JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(employees);
         Map<String, Object> parameters = new HashMap<>();
         parameters.put("createdBy", "Thomas Edwards");
-        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters);
+        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, dataSource);
         if (reportFormat.equalsIgnoreCase("html")) {
             JasperExportManager.exportReportToHtmlFile(jasperPrint, path + "\\thermometerchart.html");
         }
@@ -282,10 +310,12 @@ public class ReportService {
     public String exportTimeSeriesChart(String reportFormat) throws FileNotFoundException, JRException {
         String path = "C:\\Users\\Thomas\\Desktop\\Report";
         File file = ResourceUtils.getFile("classpath:timeserieschart.jrxml");
+        List<Employee> employees = repository.findAll();
         JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
+        JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(employees);
         Map<String, Object> parameters = new HashMap<>();
         parameters.put("createdBy", "Thomas Edwards");
-        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters);
+        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, dataSource);
         if (reportFormat.equalsIgnoreCase("html")) {
             JasperExportManager.exportReportToHtmlFile(jasperPrint, path + "\\timeserieschart.html");
         }
@@ -299,10 +329,12 @@ public class ReportService {
     public String exporxyAxisChart(String reportFormat) throws FileNotFoundException, JRException {
         String path = "C:\\Users\\Thomas\\Desktop\\Report";
         File file = ResourceUtils.getFile("classpath:xyaxischart.jrxml");
+        List<Employee> employees = repository.findAll();
         JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
+        JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(employees);
         Map<String, Object> parameters = new HashMap<>();
         parameters.put("createdBy", "Thomas Edwards");
-        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters);
+        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, dataSource);
         if (reportFormat.equalsIgnoreCase("html")) {
             JasperExportManager.exportReportToHtmlFile(jasperPrint, path + "\\xyaxischart.html");
         }
@@ -316,10 +348,12 @@ public class ReportService {
     public String exporxybarChart(String reportFormat) throws FileNotFoundException, JRException {
         String path = "C:\\Users\\Thomas\\Desktop\\Report";
         File file = ResourceUtils.getFile("classpath:xybarchart.jrxml");
+        List<Employee> employees = repository.findAll();
         JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
+        JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(employees);
         Map<String, Object> parameters = new HashMap<>();
         parameters.put("createdBy", "Thomas Edwards");
-        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters);
+        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, dataSource);
         if (reportFormat.equalsIgnoreCase("html")) {
             JasperExportManager.exportReportToHtmlFile(jasperPrint, path + "\\xybarchart.html");
         }
@@ -333,10 +367,12 @@ public class ReportService {
     public String exporxyLineChart(String reportFormat) throws FileNotFoundException, JRException {
         String path = "C:\\Users\\Thomas\\Desktop\\Report";
         File file = ResourceUtils.getFile("classpath:xylinechart.jrxml");
+        List<Employee> employees = repository.findAll();
         JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
+        JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(employees);
         Map<String, Object> parameters = new HashMap<>();
         parameters.put("createdBy", "Thomas Edwards");
-        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters);
+        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, dataSource);
         if (reportFormat.equalsIgnoreCase("html")) {
             JasperExportManager.exportReportToHtmlFile(jasperPrint, path + "\\xylinechart.html");
         }
