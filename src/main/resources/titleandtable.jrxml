@@ -11,6 +11,7 @@
     <field name="salary" class="java.lang.Double">
     </field>
     <field name="doj" class="java.lang.String">
+
     </field>
     <background>
         <band/>
